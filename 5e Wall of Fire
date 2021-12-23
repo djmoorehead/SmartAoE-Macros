@@ -1,8 +1,8 @@
 //****************************************************************************************************************************
-//  5e Web
+//  5e Wall of Fire
 //      Author: David M.
 //      Prereq's: SmartAoE script
-//      Notes: The following uses a custom status marker in the --conditionFail subcommand. Modify accordingly
+//      Notes: N/A
 //****************************************************************************************************************************
 
 !smartaoe {{
