@@ -1,0 +1,33 @@
+
+//****************************************************************************************************************************
+//  5e Calm Emotions
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes:
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Calm Emotions
+  --leftsub|Slot level 2
+  --rightsub|DC @{selected|spell_save_dc} CHA
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/253768067/fqMX7vhp-9KE2k9dlv69fA/max.png?1635979682');background-size: 100% 100%; background-repeat: no-repeat
+  --subtitlefontcolor|#ffffff
+  --aoeColor|#77b0b050
+  --aoeOutlineColor|#265073
+  --gridColor|#26507350
+  
+  --instant|1
+  --aoeType|circle, float
+  --radius|20ft
+  --minGridArea|0.25
+  --minTokArea|0.25
+  --fx|glow-frost
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eCHA
+  --ignore|SmartAoE_Ignore,1 
+
+  --autoApply|1
+  --bar|1
+  --conditionFail|chained-heart
+  --desc|You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw; a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects.%br%You can suppress any effect causing a target to be charmed or frightened. When this spell ends, any suppressed effect resumes, provided that its duration has not expired in the meantime.%br%Alternatively, you can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a spell or if it witnesses any of its friends being harmed. When the spell ends, the creature becomes hostile again, unless the DM rules otherwise.
+}}
