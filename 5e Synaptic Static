@@ -1,0 +1,44 @@
+//****************************************************************************************************************************
+//  5e Ice Storm
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: I use a custom rollable table token "character" for the --controlTokName called GenericSpellAoE, set to image side 9, size 8.
+//              Either delete these three lines, or substitute for your own 
+//            Also, a custom condition marker is used in the --conditionFail subcommand. Modify accordingly
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Synaptic Static
+  --leftsub|Slot level ?{Cast at what level?|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} INT
+  --subtitlefontcolor|#ffffff
+  --titlecardbackground|linear-gradient(purple, #99CCFF)
+  --oddrowbackground|#c0c0c0
+  --evenrowbackground|#d9d9d9
+  --oddrowfontcolor|#000000
+  --tablebgcolor|#fff00
+  
+  --controlTokName|GenericSpellAoE
+  --controlTokSide|9
+  --controlTokSize|8
+  --aoeColor|#8066FF50
+  --aoeOutlineColor|#80066FF
+  --aoeType|circle, float
+  --radius|4u
+  --minGridArea|0.25
+  --minTokArea|0.25
+  --fx|glow-magic
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eINT
+  --damageFormula1|[[8d6]]
+  --damageType1|psychic 
+  --instant|1 
+  --conditionFail|Bane::1510106
+  --hideNames|1
+  --autoApply|1
+  --bar|1
+  --zeroHPmarker|dead
+  --ignore|SmartAoE_Ignore,1
+  --desc|You choose a point within range and cause psychic energy to explode there. Each creature in a 20-foot-radius sphere centered on that point must make an Intelligence saving throw. A creature with an Intelligence score of 2 or lower can’t be affected by this spell. A target takes 8d6 psychic damage on a failed save, or half as much damage on a successful one.
+After a failed save, a target has muddled thoughts for 1 minute. During that time, it rolls a d6 and subtracts the number rolled from all its attack rolls and ability checks, as well as its Constitution saving throws to maintain concentration. The target can make an Intelligence saving throw at the end of each of its turns, ending the effect on itself on a success.
+}}
