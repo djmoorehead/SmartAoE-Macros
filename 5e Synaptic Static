@@ -1,6 +1,6 @@
 //****************************************************************************************************************************
 //  5e Ice Storm
-//      Author: David M.
+//      Author: FR
 //      Prereq's: SmartAoE script
 //      Notes: I use a custom rollable table token "character" for the --controlTokName called GenericSpellAoE, set to image side 9, size 8.
 //              Either delete these three lines, or substitute for your own 
