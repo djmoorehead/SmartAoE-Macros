@@ -1,0 +1,36 @@
+//****************************************************************************************************************************
+//  5e Hypnotic Pattern
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: I use a custom rollable table token "character" for the --controlTokName called GenericSpellAoE, set to image side 9, size 6.
+//              Either delete these three lines, or substitute for your own 
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|HypnoticPattern
+  --leftsub|Slot level 3
+  --rightsub|DC @{selected|spell_save_dc} WIS
+  --titlecardbackground|linear-gradient(#af70c2, #e0cce6)
+  --oddrowbackground|#af70c2
+  --evenrowbackground|#e0cce6
+  --oddrowfontcolor|#000000
+  --tablebgcolor|#e0cce6
+  
+  --controlTokSize|6
+  --controlTokName|GenericSpellAoE
+  --controlTokSide|9
+  --aoeColor|#c0c0c050
+  --aoeOutlineColor|#666666
+  --aoeType|square, float
+  --radius|3u
+  --minTokArea|0.25
+  --fx|bubbling-magic
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eWIS 
+  --hideNames|1
+  --autoApply|1
+  --instant|1 
+  --conditionFail|sleepy
+  --ignore|SmartAoE_Ignore,1
+  --desc|You create a twisting pattern of colors that weaves through the air inside a 30-foot cube within range. The pattern appears for a moment and vanishes. Each creature in the area who sees the pattern must make a Wisdom saving throw. On a failed save, the creature becomes charmed for the duration. While charmed by this spell, the creature is incapacitated and has a speed of 0.%br%The spell ends for an affected creature if it takes any damage or if someone else uses an action to shake the creature out of its stupor.
+}}
