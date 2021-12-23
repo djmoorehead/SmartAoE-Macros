@@ -1,0 +1,38 @@
+
+//****************************************************************************************************************************
+//  5e Spirit Guardians
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: Either remove or update your --ignore attribute to whatever you want
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Spirit Guardians
+  --leftsub|Slot level ?{Cast at what level?|3,3|4,4|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} WIS
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/253253846/-01wiItwF1nthkh7UwRkIQ/max.png?1635696123');background-size: 100% 100%; background-repeat: no-repeat
+  --oddrowbackground|#ffffaa
+  --evenrowbackground|#ffffff
+  --oddrowfontcolor|#000000
+  --tablebgcolor|#ffffff
+  --aoeColor|#ffff0050
+  --aoeOutlineColor|#cccc00
+  --gridColor|#ffffff00
+
+  --controlTokName|self
+  --aoeType|circle, float
+  --radius|17.5ft
+  --forceIntersection|0
+  --minGridArea|0.5
+  --minTokArea|0.25
+  --fx|burn-holy
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eWIS
+  --damageFormula1|[[?{Cast at what level?}d8]]
+  --damageType1|Radiant
+
+  --ignore|SmartAoE_Ignore,1 
+  --autoApply|1
+  --bar|1
+  --zeroHPmarker|dead
+}}
