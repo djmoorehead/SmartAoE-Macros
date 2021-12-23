@@ -1,0 +1,32 @@
+//****************************************************************************************************************************
+//  5e Web
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: The following uses a custom status marker in the --conditionFail subcommand. Modify accordingly
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Web
+  --leftsub|Slot level 1
+  --rightsub|DC @{selected|spell_save_dc} DEX
+  --subtitlefontcolor|#ffffff
+  --bodyfontsize|12px
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/253364781/71ajr280Oxl9vDB5Bs-6ig/max.png?1635737279');background-size: 100% 100%; background-repeat: no-repeat
+  --oddrowbackground|#aaaaaa
+  --evenrowbackground|#cccccc
+  --oddrowfontcolor|#000000
+  --tablebgcolor|#cccccc
+  --aoeColor|#00000050
+  --aoeOutlineColor|#000000
+
+  --aoeType|square, float
+  --radius|10ft
+  --minTokArea|0.25
+  --fx|glow-death
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eDEX 
+  --autoApply|1
+  --ignore|SmartAOE_ignore,1 
+  --conditionFail|Restrained::3381563
+  --desc|You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs fill a 20- foot cube from that point for the duration. The webs are difficult terrain and lightly obscure their area.%br%Each creature that starts its turn in the webs or that enters them during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the webs or until it breaks free.%br%A creature restrained by the webs can use its action to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained.%br%The webs are flammable. Any 5-foot cube of webs exposed to fire burns away in 1 round, dealing 2d4 fire damage to any creature that starts its turn in the fire.
+}}
