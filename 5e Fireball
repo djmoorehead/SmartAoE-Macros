@@ -1,0 +1,36 @@
+
+//****************************************************************************************************************************
+//  5e Fireball
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: I use a custom rollable table token "character" for the --controlTokName called GenericSpellAoE, set to image side 5, size 8.
+//              Either delete these three lines, or substitute for your own 
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Fireball
+  --leftsub|Slot level ?{Cast at what level?|3,3|4,4|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} DEX 
+ 
+  --controlTokName|GenericSpellAoE
+  --controlTokSize|8
+  --controlTokSide|5
+  --aoeColor|#99000050
+  --instant|1
+  --gridColor|#99000050
+  --aoeType|circle, float
+  --radius|20ft
+  --minGridArea|0.25
+  --minTokArea|0.25
+  --fx|burn-fire
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eDEX
+  --damageFormula1|[[(5+?{Cast at what level?})d6]]
+  --damageType1|Fire
+  --ignore|SmartAoE_Ignore,1 
+
+  --autoApply|1
+  --bar|1
+  --zeroHPmarker|dead
+  --desc|A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius Sphere centered on that point must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one.%br%%br%The fire spreads around corners. It ignites flammable Objects in the area that aren’t being worn or carried.
+}}
