@@ -1,0 +1,34 @@
+//****************************************************************************************************************************
+//  5e Shatter
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes:
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Shatter
+  --leftsub|Slot level ?{Cast at what level?|2|3|4|5|6|7|8|9}
+  --rightsub|DC @{selected|spell_save_dc} DEX
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/256379607/PTVgGkwvV0OpEWYw6JOcXQ/max.png?1637346097');background-size: 100% 100%; background-repeat: no-repeat 
+
+  --aoeColor|#ffffff60
+  --aoeOutlineColor|#ffffff
+  --instant|1
+  --gridColor|#ffffff50
+  --aoeType|circle, float
+  --forceIntersection|1
+  --radius|10ft
+  --minGridArea|0.25
+  --minTokArea|0.25
+  --fx|glow-smoke
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eCON
+  --damageFormula1|[[(1+?{Cast at what level?})d6]]
+  --damageType1|thunder
+  --ignore|SmartAoE_Ignore,1 
+  --hideNames|1
+
+  --autoApply|1
+  --bar|1
+  --desc|A sudden loud ringing noise, painfully intense, erupts from a point of your choice within range. Each creature in a 10-foot-radius sphere centered on that point must make a Constitution saving throw. A creature takes 3d8 thunder damage on a failed save, or half as much damage on a successful one. A creature made of inorganic material such as stone, crystal, or metal has disadvantage on this saving throw.%br%%br%A nonmagical object that isn't being worn or carried also takes the damage if it's in the spell's area.
+}}
