@@ -1,0 +1,111 @@
+//****************************************************************************************************************************
+//  5e Dragon's Breath with Scriptcards
+//      Author: David M.
+//      Prereq's: SmartAoE, Scriptcards, and ChatSetAttr scripts.
+//      Notes: The followng is an example of how to call SmartAoE with scriptcards, after applying some conditionals to modify the script commands. 
+//              It also checks for remaining spell slots and decrements the slot used
+//****************************************************************************************************************************
+
+!script {{
+  --&brace|{
+  --&cbrace|}
+
+  --#emoteState|0
+  --#sourcetoken|@{selected|token_id}
+  --#title|Spell Slots Remaining
+
+  --:USER QUERIES
+  --&level|?{Cast at what level?|1,1|2,2|3,3|4,4|5,5|6,6|7,7|8,8|9,9}
+  --&damageFormula1|<<(?{Cast at what level?}+2)d6>>
+  --&damageType1|?{Damage Type?|acid,acid|cold,cold|fire,fire|lightning,lightning|poison,poison}
+
+  --/>GetAndCheckSlotInformation|
+
+  --:CHANGE COLORS AND OUTPUT BY DAMAGE TYPE
+  --?[&damageType1] -eq acid|[
+      --&aoeColor|#00ff0050
+      --&aoeOutlineColor|#00ff00
+      --&subtitlefontcolor|#000000
+      --&fx|burn-acid
+      --&titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/261004638/sSCZDmBZmes3V1Ewlbv-Cg/max.jpg?1639962320');background-size: 100% 100%; background-repeat: no-repeat
+  --]|
+  --?[&damageType1] -eq cold|[
+      --&aoeColor|#00ffff50
+      --&aoeOutlineColor|#00ffff
+      --&subtitlefontcolor|#000000
+      --&fx|burn-frost
+      --&titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/261004637/4EFuFHt5OlXpSJy7ZfeA2Q/max.jpg?1639962320');background-size: 100% 100%; background-repeat: no-repeat
+  --]|
+  --?[&damageType1] -eq fire|[
+      --&aoeColor|#ff000050
+      --&aoeOutlineColor|#ff0000
+      --&subtitlefontcolor|#000000
+      --&fx|burn-fire
+      --&titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/253615223/QhQiZxJ2ufS_ry8uXVYPLQ/max.png?1635890238');background-size: 100% 100%; background-repeat: no-repeat
+  --]|
+  --?[&damageType1] -eq lightning|[
+      --&aoeColor|#4a86e850
+      --&aoeOutlineColor|#4a86e8
+      --&subtitlefontcolor|#000000
+      --&fx|burn-frost
+      --&titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/261004639/m2UaTAp9gpMAFGX32BgySQ/max.jpg?1639962320');background-size: 100% 100%; background-repeat: no-repeat
+  --]|
+  --?[&damageType1] -eq poison|[
+      --&aoeColor|#20872850
+      --&aoeOutlineColor|#208728
+      --&subtitlefontcolor|#ffffff
+      --&fx|burn-acid
+            --&titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/261004636/pbs4ElLQsK4cTfYlr4gg1g/max.jpg?1639962320');background-size: 100% 100%; background-repeat: no-repeat
+  --]|
+
+  --:BUILD SMARTAOE MACRO AND TRIGGER
+  --@forselected|smartaoe [&brace][&brace]
+             _title|Dragon's Breath
+             _leftsub|Slot level [&level]
+             _rightsub|DC @{selected|spell_save_dc} DEX 
+             _subtitlefontcolor|[&subtitlefontcolor]
+             _titlecardbackground|[&titlecardbackground]
+             _aoeType|5econe
+             _radius|15ft
+             _origin|nearest, face
+             _minGridArea|0.25
+             _minTokArea|0.25
+             _fx|[&fx]
+             _dc|@{selected|spell_save_dc}
+             _saveFormula|5eDEX
+             _aoeColor|[&aoeColor]
+             _aoeOutlineColor|[&aoeOutlineColor]
+             _damageFormula1|[&damageFormula1]
+             _damageType1|[&damageType1]
+             _instant|1
+             _ignore|party_member,1 
+             _autoApply|1
+             _bar|1
+             _zeroHPmarker|dead
+             _desc|You touch one willing creature and imbue it with the power to spew magical energy from its mouth, provided it has one. Choose acid, cold, fire, lightning, or poison. Until the spell ends, the creature can use an action to exhale energy of the chosen type in a 15-foot cone. Each creature in that area must make a Dexterity saving throw, taking 3d6 damage of the chosen type on a failed save, or half as much damage on a successful one.
+          [&cbrace][&cbrace]
+
+  --X|End Macro
+
+  --:PROCEDURES|
+  --:GetAndCheckSlotInformation|
+      --=SlotLevel|[&level]
+      --=SlotsTotal|[*S:lvl[$SlotLevel]_slots_total]
+       --=SlotsExpended|[*S:lvl[$SlotLevel]_slots_expended]
+      --?[$SlotsExpended.Total] -eq 0|>NoSlotsLeft
+      --?[$SlotsExpended.Total] -gt [$SlotsTotal.Total]|>NoSlotsLeft  
+      -->DeductSpellSlot|
+  --<| 
+
+  --:DeductSpellSlot|
+      --=SlotsExpended|[$SlotsExpended] -1 
+      --@setattr|_charid [*S:character_id] _lvl[$SlotLevel]_slots_expended|[$SlotsExpended] _silent
+     --=SlotsRemaining|[$SlotsTotal] - 1 
+    --+|[c][b]Level [$SlotLevel] Spell Slots Left: [/b][$SlotsExpended][/c] 
+  --<|
+
+ --:NoSlotsLeft|
+     --+|[b][*S:character_name] has no level [$SlotLevel.Total] spell slots available.[/b]
+     --X|NoSlotsLeftStop
+  --<|
+}}
