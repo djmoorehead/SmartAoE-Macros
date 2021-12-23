@@ -1,0 +1,32 @@
+//****************************************************************************************************************************
+//  5e Flaming Sphere
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: I use a custom rollable table token "character" for the --controlTokName called GenericSpellAoE, set to image side 2.
+//              Either delete these two lines, or substitute for your own 
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Flaming Sphere
+  --leftsub|Slot level ?{Cast at what level?|2,2|3,3|4,4|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} DEX
+ 
+  --aoeType|square, float
+  --radius|7.5ft
+  --forceIntersection|0
+  --controlTokName|GenericSpellAoE
+  --controlTokSide|2
+  --gridColor|#99000000
+  --minGridArea|0.25
+  --minTokArea|0.25
+  --fx|burn-fire
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eDEX
+  --damageFormula1|[[?{Cast at what level?}d6]]
+  --damageType1|Fire
+  --ignore|SmartAoE_Ignore,1 
+
+  --autoApply|1
+  --bar|1
+  --zeroHPmarker|dead
+}}
