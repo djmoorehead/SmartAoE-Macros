@@ -1,0 +1,33 @@
+
+//****************************************************************************************************************************
+//  5e Lightning Bolt
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes:
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Lightning Bolt
+  --leftsub|Slot level ?{Cast at what level?|3,3|4,4|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} DEX
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/248538196/c9xft1A2jWNqOkBsxQwyLQ/max.jpg?1633278017');background-size: contain;
+  --subtitlefontcolor|#ffffff
+  --oddrowbackground|#2c2775
+  --evenrowbackground|#c0bfd6
+  --oddrowfontcolor|#ffffff
+  --tablebgcolor|#c0bfd6
+  --aoeColor|#0044ff50
+
+  --aoeType|line
+  --radius|100ft
+  --fx|burn-frost
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eDEX
+  --damageFormula1|[[(5+?{Cast at what level?})d6]]
+  --damageType1|Lightning
+  --zeroHpMarker|dead
+  --instant|1
+  --autoApply|1
+  --bar|1
+  --desc|A stroke of lightning forming a line 100 feet long and 5 feet wide blasts out from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 8d6 lightning damage on a failed save, or half as much damage on a successful one. The lightning ignites flammable objects in the area that aren’t being worn or carried.
+}}
