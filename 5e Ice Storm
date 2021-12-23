@@ -1,0 +1,45 @@
+
+//****************************************************************************************************************************
+//  5e Ice Storm
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: I use a custom rollable table token "character" for the --controlTokName called GenericSpellAoE, set to image side 14, size 8.
+//              Either delete these three lines, or substitute for your own 
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Ice Storm
+  --leftsub|Slot level ?{Cast at what level?|4,4|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} DEX
+  --titlecardbackground|linear-gradient(blue, cyan)
+  --oddrowbackground|#00ccff
+  --evenrowbackground|#edfcfc
+  --oddrowfontcolor|#000000
+  --tablebgcolor|#edfcfc
+ 
+  --controlTokName|GenericSpellAoE
+  --controlTokSize|8
+  --controlTokSide|14
+  --aoeColor|#00ccff50
+  --aoeOutlineColor|#0099ff
+  --gridColor|#99999900
+  --aoeType|circle, float
+  --radius|20ft
+  --minGridArea|0.25
+  --minTokArea|0.25
+  --fx|burn-frost
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eDEX
+  --damageFormula1|[[(?{Cast at what level?}-2)d8]]
+  --damageType1|Bludgeon
+  --damageFormula2|[[4d6]]
+  --damageType2|Cold
+  --damageSaveRule|*0.5
+  --ignore|SmartAoE_Ignore,1 
+  --instant|1
+
+  --autoApply|1
+  --bar|1
+  --zeroHPmarker|dead
+  --desc|A hail of rock-hard ice pounds to the ground in a 20-foot-radius, 40-foot-high cylinder centered on a point within range. Each creature in the cylinder must make a Dexterity saving throw. A creature takes 2d8 bludgeoning damage and 4d6 cold damage on a failed save, or half as much damage on a successful one.%br%%br%Hailstones turn the storm's area of effect into difficult terrain until the end of your next turn.
+}}
