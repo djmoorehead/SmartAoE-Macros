@@ -1,0 +1,32 @@
+//****************************************************************************************************************************
+//  5e Entangle
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: The following uses a custom status marker in the --conditionFail subcommand. Modify accordingly
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Entangle
+  --leftsub|Slot level 1
+  --rightsub|DC @{selected|spell_save_dc} STR
+  --subtitlefontcolor|#ffffff
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/253361929/Sum-uYKHEGJObbOmhPWTGQ/max.png?1635735131');background-size: 100% 100%; background-repeat: no-repeat
+  --oddrowbackground|#d1e1cb
+  --evenrowbackground|#ffffff
+  --oddrowfontcolor|#000000
+  --tablebgcolor|#d1e1cb
+  --aoeColor|#10872d50
+  --aoeOutlineColor|#10872d
+  --gridColor|#10872d00
+
+  --aoeType|square, float
+  --radius|10ft
+  --minTokArea|0.25
+  --fx|bubbling-acid
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eSTR 
+  --autoApply|1
+  --ignore|SmartAOE_ignore,1 
+  --conditionFail|Restrained::3381563
+  --desc|Grasping weeds and vines sprout from the ground in a 20-foot square starting from a point within range. For the duration, these plants turn the ground in the area into difficult terrain.%br%%br%A creature in the area when you cast the spell must succeed on a Strength saving throw or be restrained by the entangling plants until the spell ends. A creature restrained by the plants can use its action to make a Strength check against your spell save DC. On a success, it frees itself.%br%%br%When the spell ends, the conjured plants wilt away.
+}}
