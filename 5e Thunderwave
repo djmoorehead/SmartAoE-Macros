@@ -1,0 +1,33 @@
+//****************************************************************************************************************************
+//  5e Thunderwave
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: Using a float square aoe type. User will have to position accordingly
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Thunderwave
+  --leftsub|Slot level ?{Cast at what level?|1,1|2,2|3,3|4,4|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} CON
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/253624290/aHQ8iSGWD1gYyR94kocxOg/max.png?1635893578');background-size: 100% 100%; background-repeat: no-repeat
+  --subtitlefontcolor|#ffffff
+  --aoeColor|#88888850
+  --aoeOutlineColor|#ffffff
+
+  --aoeType|square, float
+  --forceIntersection|0
+  --offset|1,0
+  --radius|7.5ft
+  --fx|burn-smoke
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eCON
+  --damageFormula1|[[(?{Cast at what level?}+1)d8]]
+  --damageType1|Thunder
+  --instant|1
+  --ignore|SmartAoE_Ignore,1 
+
+  --autoApply|1
+  --bar|1
+  --zeroHPmarker|dead
+  --desc|A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.%br%In addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.
+}}
