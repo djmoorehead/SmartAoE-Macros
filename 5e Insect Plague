@@ -1,0 +1,38 @@
+
+//****************************************************************************************************************************
+//  5e Insect Plague
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: N/A
+//****************************************************************************************************************************
+
+
+!smartaoe {{
+  --title|Insect Plague
+  --leftsub|Slot level ?{Cast at what level?|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} CON
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/253724299/2NqUw-5AxhczcNfM1jMeCw/max.png?1635962473');background-size: 100% 100%; background-repeat: no-repeat
+
+  --aoeColor|#94b58650
+  --aoeOutlineColor|#274e13
+  --gridColor|#274e1350
+  --tablebgcolor|#f8fbf4
+  --evenrowbackground|#f8fbf4
+  --oddrowbackground|#d1dfbd
+  --instant|0
+  --aoeType|circle, float
+  --radius|20ft
+  --minGridArea|0.25
+  --minTokArea|0.25
+  --fx|glow-acid
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eCON
+  --damageFormula1|[[(?{Cast at what level?}-1)d10]]
+  --damageType1|Piercing
+  --ignore|SmartAoE_Ignore,1 
+
+  --autoApply|1
+  --bar|1
+  --zeroHPmarker|dead
+  --desc|Swarming, biting locusts fill a 20-foot-radius sphere centered on a point you choose within range. The sphere spreads around corners. The sphere remains for the duration, and its area is lightly obscured. The sphere's area is difficult terrain.%br%When the area appears, each creature in it must make a Constitution saving throw. A creature takes 4d10 piercing damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.
+}}
