@@ -1,0 +1,33 @@
+
+//****************************************************************************************************************************
+//  5e Aura of Vitality
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: negative damage and --noSave|1 is used for healing
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Aura of Vitality
+  --leftsub|Slot level 3
+  --rightsub|No Save
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/253287692/0dpMLj12wwv9cRy5RRw6LA/max.png?1635706258');background-size: 100% 100%; background-repeat: no-repeat
+  --oddrowbackground|#ffffaa
+  --evenrowbackground|#ffffff
+  --oddrowfontcolor|#000000
+  --tablebgcolor|#ffffff
+  --aoeColor|#ffff0050
+  --aoeOutlineColor|#cccc00
+  --gridColor|#ffffff00
+
+  --controlTokName|self
+  --aoeType|circle, float
+  --radius|32.5ft
+  --forceIntersection|0
+  --minGridArea|0.5
+  --minTokArea|0.25
+  --fx|glow-holy
+  --noSave|1
+  --damageFormula1|[[-1*2d6]]
+  --damageType1|(Healing)
+  --autoApply|1
+}}
