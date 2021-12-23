@@ -1,0 +1,39 @@
+//****************************************************************************************************************************
+//  5e Flame Strike
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: I use a custom rollable table token "character" for the --controlTokName called GenericSpellAoE, set to image side 5, size 4.
+//              Either delete these three lines, or substitute for your own 
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Flame Strike
+  --leftsub|Slot level ?{Cast at what level?|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} DEX 
+  --titlecardbackground|url('https://s3.amazonaws.com/files.d20.io/images/253720266/uRASMk_-td__jPXlGTDVZQ/max.png?1635960878');background-size: 100% 100%; background-repeat: no-repeat
+ 
+  --controlTokName|GenericSpellAoE
+  --controlTokSize|4
+  --controlTokSide|5
+  --aoeColor|#99000050
+  --subtitleFontColor|#ffffff
+  --instant|1
+  --gridColor|#99000050
+  --aoeType|circle, float
+  --radius|10ft
+  --minGridArea|0.25
+  --minTokArea|0.25
+  --fx|burn-fire
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eDEX
+  --damageFormula1|[[(?{Cast at what level?}-1)d6]]
+  --damageType1|Fire
+  --damageFormula2|[[(?{Cast at what level?}-1)d6]]
+  --damageType2|Radiant
+  --ignore|SmartAoE_Ignore,1 
+
+  --autoApply|1
+  --bar|1
+  --zeroHPmarker|dead
+  --desc|A vertical column of divine fire roars down from the heavens in a location you specify. Each creature in a 10-foot-radius, 40-foot-high cylinder centered on a point within range must make a Dexterity saving throw. A creature takes 4d6 fire damage and 4d6 radiant damage on a failed save, or half as much damage on a successful one.
+}}
