@@ -1,0 +1,32 @@
+
+//****************************************************************************************************************************
+//  5e Burning Hands
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: The following uses a custom status marker in the --conditionFail subcommand. Modify accordingly
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Burning Hands
+  --leftsub|Slot level ?{Cast at what level?|1,1|2,2|3,3|4,4|5,5|6,6|7,7|8,8|9,9}
+  --rightsub|DC @{selected|spell_save_dc} DEX
+
+  --aoeType|5econe
+  --forceIntersection|0
+  --radius|15ft
+  --origin|nearest, face
+  --minGridArea|0.25
+  --minTokArea|0.25
+  --fx|burn-fire
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eDEX
+  --damageFormula1|[[(?{Cast at what level?}+2)d6]]
+  --damageType1|Fire
+  --instant|1
+  --ignore|SmartAoE_Ignore,1 
+
+  --autoApply|1
+  --bar|1
+  --zeroHPmarker|dead
+  --desc|As you hold your hands with thumbs touching and fingers spread, a thin sheet of flames shoots forth from your outstretched fingertips. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes 3d6 fire damage on a failed save, or half as much damage on a successful one.%br%%br%The fire ignites any flammable objects in the area that aren't being worn or carried.
+}}
