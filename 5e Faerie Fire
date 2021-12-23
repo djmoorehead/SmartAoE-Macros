@@ -1,0 +1,30 @@
+//****************************************************************************************************************************
+//  5e Faerie Fire
+//      Author: David M.
+//      Prereq's: SmartAoE script
+//      Notes: The following uses a custom status marker in the --conditionFail subcommand. Modify accordingly
+//****************************************************************************************************************************
+
+!smartaoe {{
+  --title|Faerie Fire
+  --leftsub|Slot level 1
+  --rightsub|DC @{selected|spell_save_dc} DEX
+  --titlecardbackground|linear-gradient(#af70c2, #e0cce6)
+  --oddrowbackground|#af70c2
+  --evenrowbackground|#e0cce6
+  --oddrowfontcolor|#000000
+  --tablebgcolor|#e0cce6
+  --aoeColor|#bd39e650
+  --aoeOutlineColor|#9611bf
+
+  --aoeType|square, float
+  --radius|10ft
+  --minTokArea|0.25
+  --fx|bubbling-magic
+  --dc|@{selected|spell_save_dc}
+  --saveFormula|5eDEX 
+  --autoApply|1
+  --ignore|SmartAOE_ignore,1 
+  --conditionFail|GrantsAdvantage::1510122
+  --desc|Each object in a 20-foot cube within range is outlined in blue, green, or violet light (your choice). Any creature in the area when the spell is cast is also outlined in light if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed dim light in a 10-foot radius.%br%%br%Any attack roll against an affected creature or object has advantage if the attacker can see it, and the affected creature or object can't benefit from being invisible.
+}}
