@@ -25,6 +25,7 @@
   --aoeOutlineColor|#80066FF
   --aoeType|circle, float
   --radius|4u
+  --forceIntersection|1
   --minGridArea|0.25
   --minTokArea|0.25
   --fx|glow-magic
