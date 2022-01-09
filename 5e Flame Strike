@@ -21,6 +21,7 @@
   --gridColor|#99000050
   --aoeType|circle, float
   --radius|10ft
+  --forceIntersection|1
   --minGridArea|0.25
   --minTokArea|0.25
   --fx|burn-fire
