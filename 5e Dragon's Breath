@@ -2,7 +2,7 @@
 //****************************************************************************************************************************
 //  5e Dragon's Breath
 //      Author: David M.
-//      Prereq's: SmartAoE script
+//      Prereq's: SmartAoE, SelectManager scripts
 //      Notes: I've set duration to instant even though it is a concentration spell. Just fire it again when you use it.
 //****************************************************************************************************************************
 
