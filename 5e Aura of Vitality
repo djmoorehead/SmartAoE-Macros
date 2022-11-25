@@ -27,7 +27,7 @@
   --minTokArea|0.25
   --fx|glow-holy
   --noSave|1
-  --damageFormula1|[[-1*2d6]]
+  --damageFormula1|[[0 + [[0 - 2]]d6]]
   --damageType1|(Healing)
   --autoApply|1
 }}
