@@ -13,11 +13,12 @@
   --aoeType|wall
   --offset|1,0
   --minGridArea|0.5
-  --radius|30ft
+  --radius|60ft
   --width|2u
   --fx|burn-fire
   --dc|@{selected|spell_save_dc}
   --damageFormula1|[[(1+?{Cast at what level?})d8]]
+  --damageType1|fire
   --saveFormula|5eDex
 
   --autoApply|1
