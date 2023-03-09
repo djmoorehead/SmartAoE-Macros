@@ -26,10 +26,10 @@
      --=fireDice|[$baseDice]
      --=radDice|[$baseDice]+[$additionalDice]
   --]|
-  --&damForm1|[&lsqbrack]^[&lsqbrack][$fireDice.Raw]d6[&rsqbrack]^[&rsqbrack]
-  --&damForm2|[&lsqbrack]^[&lsqbrack][$radDice.Raw]d6[&rsqbrack]^[&rsqbrack]
+  --&damForm1|<<[$fireDice.Raw]d6>>
+  --&damForm2|<<[$radDice.Raw]d6>>
 
-  --@forselected(^)|SmartAoE [&lbrack][&lbrack]   
+  --@forselected|SmartAoE [&lbrack][&lbrack]   
           _title|Flame Strike
           _leftsub|Slot level [&lvl]
           _rightsub|DC @{selected|spell_save_dc} DEX
